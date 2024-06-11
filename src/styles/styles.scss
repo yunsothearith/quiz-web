@@ -1,0 +1,13 @@
+/* ----------------------------------------------------------------------------------------------------- */
+/*  @ Import/write your custom styles here.
+/*  @ Styles from this file will override 'vendors.scss' and Helpers's base styles.
+/* ----------------------------------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&family=Siemreap&display=swap');
+
+* {
+    font-family: 'Inter', 'Siemreap', sans-serif;
+}
+
+.custom-border {
+    border: 1px solid #102D71 !important;
+}

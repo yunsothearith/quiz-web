@@ -1,0 +1,160 @@
+<div class="out-create-section md-form-field-appearance-outline">
+    <div mat-dialog-title class="min-h-14 max-h-14 flex gap-2 justify-between items-center py-2 pl-5 pr-2.5">
+        <div class="flex flex-1 items-center text-slate-500">
+            <h1 class="text-3xl">បង្កើតគណនី</h1>
+        </div>
+        <div class="flex items-center cursor-pointer"><mat-icon class="-mb-0.5" [svgIcon]="'heroicons_outline:x-mark'" (click)="closeDialog()"></mat-icon>
+        </div>
+    </div>
+    <div class="out-create-body px-4 pb-2">
+        <form [formGroup]="createForm" class="out-create-content border-t pt-4">
+            <!-- upload -->
+                    <div class="w-full md:min-w-64 flex flex-col items-center">
+                        <div class="pr-0 md:pr-5 w-full max-w-64 min-h-64 overflow-hidden relative">
+                            <app-portrait [disabled]="isLoading" [mode]="'UPLOAD'" [title]="'បញ្ចូលរូបភាព'"
+                                [src]="src" [index]="'image'" (srcChange)='srcChange($event)'></app-portrait>
+                        </div>
+                    </div>
+                <!-- form -->
+                <div class="mt-4 flex flex-col">
+                    <div class="grid grid-cols-1 lg:grid-cols-1 gap-0 lg:gap-5">
+                        <mat-form-field>
+                            <mat-label>លេខអតិថិជន*</mat-label>
+                            <input matInput [formControlName]="'card_no'" type="number" placeholder="បញ្ចូលលេខអតិថិជន*">
+                            <mat-error>សូមបញ្ចូលលេខអតិថិជន</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-5">
+                        <mat-form-field>
+                            <mat-label>នាមត្រកូល*</mat-label>
+                            <input matInput [formControlName]="'sure_name'" placeholder="បញ្ចូលនាមត្រកូល*">
+                            <mat-error>សូមបញ្ចូលនាមត្រកូល*</mat-error>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>នាមខ្លួន*</mat-label>
+                            <input matInput [formControlName]="'given_name'" placeholder="បញ្ចូលនាមខ្លួន*">
+                            <mat-error>សូមបញ្ចូលនាមខ្លួន</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-1 gap-0 lg:gap-5 ">
+                        <mat-form-field>
+                            <mat-label>ឈ្មោះជាអក្សរឡាតាំង*</mat-label>
+                            <input matInput [formControlName]="'lattin_name'" placeholder="បញ្ចូលឈ្មោះជាអក្សរឡាតាំង*">
+                            <mat-error>សូមបញ្ចូលឈ្មោះជាអក្សរឡាតាំង</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-1 gap-0 lg:gap-5 pb-5">
+                        <mat-radio-group [formControlName]="'sex_id'">
+                            <mat-radio-button *ngFor="let option of sexOptions" [value]="option.id">{{ option.name }}</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-1 gap-0 lg:gap-5">
+                        <mat-form-field>
+                            <mat-label>លេខលិខិតឆ្លងដែន*</mat-label>
+                            <input matInput [formControlName]="'card_no'" type="number" placeholder="បញ្ចូលលេខលិខិតឆ្លងដែន*">
+                            <mat-error>សូមបញ្ចូលលេខលិខិតឆ្លងដែន</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-5">
+                        <mat-form-field>
+                            <mat-label>លេខទូរស័ព្ទ*</mat-label>
+                            <input matInput [formControlName]="'phone'" placeholder="បញ្ចូលលេខទូរស័ព្ទ*">
+                            <mat-error>សូមបញ្ចូលលេខទូរស័ព្ទ</mat-error>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>អុីម៉ែល*</mat-label>
+                            <input matInput [formControlName]="'email'" type="email" placeholder="បញ្ចូលអុីម៉ែល*">
+                            <mat-error>សូមបញ្ចូលអុីម៉ែល</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-5">
+                        <mat-form-field>
+                            <mat-label>ហ្វេសប៊ុក*</mat-label>
+                            <input matInput [formControlName]="'facebook'" placeholder="ហ្វេសប៊ុក*">
+                            <mat-error>សូមបញ្ចូលហ្វេសប៊ុក*</mat-error>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>តេលេក្រាម*</mat-label>
+                            <input matInput [formControlName]="'telegram'" placeholder="បញ្ចូលតេលេក្រាម*">
+                            <mat-error>សូមបញ្ចូលតេលេក្រាម</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-5">
+                        <mat-form-field>
+                            <mat-label>ទីកន្លែងកំណើត*</mat-label>
+                            <input matInput [formControlName]="'pob'" placeholder="ទីកន្លែងកំណើត*">
+                            <mat-error>សូមបញ្ចូលទីកន្លែងកំណើត*</mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>ថ្ងៃខែកំណើត*</mat-label>
+                            <input matInput formControlName="dob" placeholder="DD-MM-YYYY"
+                                [matDatepicker]="picker1">
+                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                            <mat-datepicker #picker1></mat-datepicker>
+                            <mat-error>បញ្ចូលថ្ងៃខែកំណើតឲ្យបានត្រឹមត្រូវ</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-1 gap-0 lg:gap-5">
+                        <mat-form-field>
+                            <mat-label>អាសយដ្ឋាន*</mat-label>
+                            <input matInput [formControlName]="'address'" placeholder="បញ្ចូលអាសយដ្ឋាន*">
+                            <mat-error>សូមបញ្ចូលអាសយដ្ឋាន</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <!-- emergency -->
+                <div class="flex items-center bg-slate-100 p-3 mb-4">
+                    <mat-icon class="icon-size-5 mx-1" svgIcon="mat_outline:contact_phone"></mat-icon>
+                    <span class="text-xl font-medium text-slate-600">ទំនាក់ទំនងបន្ទាន់</span>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-1 gap-0 lg:gap-5">
+                    <mat-form-field>
+                        <mat-label>ឈ្មោះអតិថិជន*</mat-label>
+                        <input matInput [formControlName]="'contact_name'" placeholder="បញ្ចូលឈ្មោះអតិថិជន*">
+                        <mat-error>សូមបញ្ចូលឈ្មោះអតិថិជន</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-5">
+                    <mat-form-field>
+                        <mat-label>លេខទូរស័ព្ទ*</mat-label>
+                        <input matInput [formControlName]="'contact_phone'" placeholder="បញ្ចូលលេខទូរស័ព្ទ*">
+                        <mat-error>សូមបញ្ចូលលេខទូរស័ព្ទ</mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>អុីម៉ែល*</mat-label>
+                        <input matInput [formControlName]="'contact_email'" type="email" placeholder="បញ្ចូលអុីម៉ែល*">
+                        <mat-error>សូមបញ្ចូលអុីម៉ែល</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-5">
+                    <mat-form-field>
+                        <mat-label>ហ្វេសប៊ុក*</mat-label>
+                        <input matInput [formControlName]="'contact_facebook'" placeholder="ហ្វេសប៊ុក*">
+                        <mat-error>សូមបញ្ចូលហ្វេសប៊ុក*</mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>តេលេក្រាម*</mat-label>
+                        <input matInput [formControlName]="'contact_telegram'" placeholder="បញ្ចូលតេលេក្រាម*">
+                        <mat-error>សូមបញ្ចូលតេលេក្រាម</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-1 gap-0 lg:gap-5">
+                    <mat-form-field>
+                        <mat-label>អាសយដ្ឋាន*</mat-label>
+                        <input matInput [formControlName]="'contact_address'" placeholder="បញ្ចូលអាសយដ្ឋាន*">
+                        <mat-error>សូមបញ្ចូលអាសយដ្ឋាន</mat-error>
+                    </mat-form-field>
+                </div>
+        </form>
+    </div>
+    <mat-dialog-actions>
+        <div class="w-full flex justify-end px-1">
+        <button class="helpers-mat-button-md" mat-flat-button (click)="submit()" [disabled]="createForm.invalid || saving">
+            <span *ngIf="!createForm.disabled">រួចរាល់</span>
+            <mat-progress-spinner *ngIf="createForm.disabled" [diameter]="24"
+                [mode]="'indeterminate'"></mat-progress-spinner>
+        </button>
+        </div>
+    </mat-dialog-actions>
+
+</div>

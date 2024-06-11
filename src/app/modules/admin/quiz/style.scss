@@ -1,0 +1,151 @@
+.list-product-section {
+    width: 100%;
+    height: calc(100dvh - 4rem) !important;
+    overflow: hidden;
+
+    .list-product-body,
+    .no-data {
+        width: 100%;
+        height: calc(100dvh - 7.5rem);
+        overflow: hidden;
+
+        .list-product-content {
+            width: 100%;
+            height: calc(100dvh - 10.5rem);
+            overflow: hidden;
+
+            .list-product-data {
+                width: 100%;
+                max-height: calc(100dvh - 11.5rem);
+                overflow: auto;
+            }
+        }
+    }
+}
+
+table {
+    padding: 1rem !important;
+    width: 100%;
+}
+
+
+::ng-deep .list-product-data .mat-cell {
+    padding: 1rem 6px !important;
+    color: rgb(71 85 105) !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+}
+
+::ng-deep .list-product-data .mdc-data-table__header-cell {
+    font-size: 1rem !important;
+    padding: 0 !important;
+    color: rgb(71 85 105) !important;
+    z-index: 100 !important;
+}
+
+::ng-deep .dark .list-product-data .mdc-data-table__header-cell,
+.dark.list-product-data .mat-cel {
+    color: rgb(243, 243, 243) !important;
+}
+
+.list-product-data .mat-column-no {
+    min-width: 0rem;
+    padding: 1rem !important;
+}
+.list-product-data .mat-column-name {
+    min-width: 4rem;
+    padding: 1rem !important;
+}
+.list-product-data .mat-column-n_of_question {
+    text-align: center;
+    padding: 1rem !important;
+}
+.list-product-data .mat-column-create_at {
+    padding: 1rem !important;
+}
+.list-product-data .mat-column-action {
+    flex: none;
+    width: 2rem;
+    margin-right: -2px !important;
+}
+
+.flex-custom {
+    display: flex !important;
+}
+
+::placeholder {
+    color: rgb(100 116 139) !important;
+}
+
+::-ms-input-placeholder {
+    color: rgb(100 116 139) !important;
+}
+
+::ng-deep .sm-form-field-appearance-outline.height-header {
+    .mat-mdc-form-field.mat-form-field-appearance-outline {
+
+        .mat-mdc-form-field-flex {
+            height: 2.5rem !important;
+
+            .mdc-notched-outline {
+                .mdc-notched-outline__leading {
+                    border-radius: 0.65rem 0 0 0.65rem !important;
+                    min-width: 0.65rem !important;
+                }
+
+                .mdc-notched-outline__trailing {
+                    border-radius: 0 0.65rem 0.65rem 0 !important;
+                    min-width: 0.65rem !important;
+                }
+            }
+        }
+
+        .mat-mdc-form-field-infix {
+
+            input.mat-mdc-input-element.mdc-text-field__input,
+            .mat-mdc-select,
+            .mat-date-range-input .mat-date-range-input-container {
+                height: 2.5rem !important;
+            }
+        }
+    }
+}
+
+
+.color-box {
+    width: 100px;
+    height: 35px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid transparent; /* Set initial border to transparent */
+    outline: 2px solid transparent; /* Set initial outline to transparent */
+    padding: 4px; /* Add padding to contain the text */
+}
+
+.color-box:hover {
+    opacity: 0.5;
+}
+
+/* Ensure that the border and outline colors are set to transparent initially */
+.color-box.transparent {
+    border-color: transparent;
+    outline-color: transparent;
+}
+
+/* Add classes for different status colors */
+.color-box.Available {
+    border-color: #198754; /* Border color for Available status */
+    outline-color: #198754; /* Outline color for Available status */
+}
+
+.color-box.Unavailable {
+    border-color: #dc3545; /* Border color for Unavailable status */
+    outline-color: #dc3545; /* Outline color for Unavailable status */
+}
+
+
+

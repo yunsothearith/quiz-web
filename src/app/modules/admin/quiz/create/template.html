@@ -1,0 +1,33 @@
+<div class="out-create-section md-form-field-appearance-outline">
+    <div mat-dialog-title class="min-h-14 max-h-14 flex gap-2 justify-between items-center py-2 pl-5 pr-2.5">
+        <div class="flex flex-1 items-center text-slate-500">
+            <h1 class="text-3xl">Create New Quiz</h1>
+        </div>
+        <div class="flex items-center cursor-pointer"><mat-icon class="-mb-0.5" [svgIcon]="'heroicons_outline:x-mark'" (click)="closeDialog()"></mat-icon>
+        </div>
+    </div>
+    <div class="out-create-body px-4 pb-2">
+        <form [formGroup]="createForm" class="out-create-content border-t pt-4">
+                <!-- form -->
+                <div class="mt-4 flex flex-col">
+                    <div class="grid grid-cols-1 lg:grid-cols-1 gap-0 lg:gap-5">
+                        <mat-form-field>
+                            <mat-label>លេខអតិថិជន*</mat-label>
+                            <input matInput [formControlName]="'name'"  placeholder="បញ្ចូលលេខអតិថិជន*">
+                            <mat-error>សូមបញ្ចូលលេខអតិថិជន</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+        </form>
+    </div>
+    <mat-dialog-actions>
+        <div class="w-full flex justify-end px-1">
+        <button class="helpers-mat-button-md" mat-flat-button (click)="submit()" [disabled]="createForm.invalid || saving">
+            <span *ngIf="!createForm.disabled">រួចរាល់</span>
+            <mat-progress-spinner *ngIf="createForm.disabled" [diameter]="24"
+                [mode]="'indeterminate'"></mat-progress-spinner>
+        </button>
+        </div>
+    </mat-dialog-actions>
+
+</div>
